@@ -1,4 +1,4 @@
-# GameCollection
+# Game Collection Website
 Game collection website created with HTML5, CSS, Flask and Python.
 
 This website which I made is about my game collection. My website lets users review the particular game only if they are logged in, however all users are allowed to view the reviews. 
