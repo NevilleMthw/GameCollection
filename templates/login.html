@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet",type = "text/css", href = "../static/stylesheets/login-signup.css">
+    <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body background="../static/hz.jpg">
+        <header>
+                <div class ="pageHeading">
+                <h2>KAMIKAZE'S SHOP</h2>
+            </div>
+            <div class="navBar">
+              <a class="active">
+                <a href= "/">About Kamikaze</a>
+                <a href="guestbook">Guestbook</a>
+                {%if session['logged in'] == True %}
+                <a href="logout">Logout</a>
+                {%else%}
+                <a href="login">Login</a>
+                <a href="signup"> Sign Up</a>
+                {% endif %}
+
+                    </a>
+                  </div>
+                        </header>
+    <content>
+            <div class="cont">
+              <form method = "POST" action = "">
+                    <div class="form sign-in" method="POST" action= "">
+                      <h2>Sign In Here.</h2>
+                      <label>
+                        <span>Username</span>
+                        <input type="text" name= "username" />
+                      </label>
+                      <label>
+                        <span>Password</span>
+                        <input type="pass" name ="password" />
+                      </label>
+                      <button type="submit" class="submit">Sign In</button>
+                      <p class = "alert" style = "text-align: center">{{msg}}</p>
+                      <p class = "alert" style = "text-align: center">{{msg}}</p>
+                      <p class = "alert" style = "text-align: center">{{msg}}</p>
+                    </div>
+                      </form>
+                    </div>
+                  </div>
+                  
+            
+            
+            </content>
+            
+</body>
+</html>

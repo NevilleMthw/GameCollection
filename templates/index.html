@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet",type = "text/css", href = "../static/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
+    <title>Introduction</title>
+</head>
+<body background= "../static/gaming.png">
+        <header>
+                <div class ="pageHeading">
+                  <h2>KAMIKAZE'S SHOP</h2>
+            </div>
+            <div class="navBar">
+                    <a class="active">
+                    <a href= "/">About Kamikaze</a>
+                    <a href="guestbook">Guestbook</a>
+                    {%if session['logged in'] == True %}
+                    <a href="logout">Logout</a>
+                    {%else%}
+                    <a href="login">Login</a>
+                    <a href="signup"> Sign Up</a>
+                    {% endif %}
+                    <div class="searchBar">
+                      <form action="/action_page.php">
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" name="search">
+                        <button type="enter">Search</button>
+                      </form>
+                    </div>
+                    </a>
+                  </div>
+                        </header>
+        <content>
+            <h2 class = "game-title">MY GAMES</h2>
+            <div class = "entireform">
+
+            <table id="myTable">
+                
+          <td><a href = "d2">
+            <div id="d2polaroid">
+              <img src="../static/D2.png" id="d2" style="width:100%">
+              <div class="d2container">
+                <p>Destiny 2</p>
+              </div>
+              </div>
+              </a>
+            </td>
+            
+            <td><a href = "uncharted"><div id = "unpolaroid">
+              <img src="../static/uncharted.png" id = "un" style="width:100%">
+              <div class="uncontainer">
+              <p>Uncharted 4: Thief's End</p>
+              </div>
+              </div>
+              </a>
+            </td>
+              </div>
+
+            <td><a href = "hz">
+              <div id="hzpolaroid">
+              <img src="../static/HZ1.jpg" id="hz" style="width:100%">
+              <div class="hzcontainer">
+                <p>Horizon Zero Dawn</p>
+              </div>
+              </div>
+              </a>
+            </td>
+            
+            
+            
+        
+        </content>
+        <script>
+          function myFunction() {
+            var input, filter, table,a, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            td = table.getElementsByTagName("td");
+            for (i = 0; i < td.length; i++) {
+              a = td[i].getElementsByTagName("a")[0];
+              if (a) {
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  td[i].style.display = "";
+                } else {
+                  td[i].style.display = "none";
+                }
+              }       
+            }
+          }
+          </script>
+
+        
+</body>
+</html>

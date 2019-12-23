@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet",type = "text/css", href = "static/stylesheets/ITX2000style.css">
+    <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
+    <title>Guestbook</title>
+</head>
+<body background = "../static/rubik.jpg">
+        <header>
+                <div class ="pageHeading">
+                <h2>KAMIKAZE'S SHOP</h2>
+            </div>
+            <div class="navBar">
+                <a class="active">
+                        <a href= "/">About Kamikaze</a>
+                        <a href="guestbook">Guestbook</a>
+                        {%if session['logged in'] == True %}
+                        <a href="logout">Logout</a>
+                        {%else%}
+                        <a href="login">Login</a>
+                        <a href="signup"> Sign Up</a>
+                        {% endif %}
+                    </a>
+                  </div>
+                        </header>
+       
+                <h3 style = "color: crimson"> Guestbook - Post your feedback!</h3>
+                {% block content %}
+                    
+                    <form action="{{ url_for('sign') }}" method=post>
+                      <dl>
+                        <dt style = "letter-spacing: 2px">Name:
+                        <dd><input type=text name=name>
+                        <dt style = "letter-spacing: 2px">Email:
+                        <dd><input type=text name=email>
+                        <dt style = "letter-spacing: 2px">Comment:
+                        <dd><input type=text name=comment>
+                        <dd><input type=submit value=Sign>
+                      </dl>
+                    </form>
+                <br>
+                {% endblock %}
+                <table>
+                                 
+                                        <th>Name</th>
+                                        <th>Email</th> 
+                                        <th>Comment</th>
+                                
+                                {% for entry in entries %}
+                                        <tr>
+                                                <td> {{ entry[0]}} </td>
+                                                <td> {{ entry[1]}} </td>
+                                                <td> {{ entry[2]}} </td>
+                                        </tr>
+                                {% endfor %}
+                        
+                        </table>
+                
+                        
+                
+        
+</body>
+</html>

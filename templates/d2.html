@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" ,type="text/css" , href="../static/stylesheets/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
+  <title>Destiny 2</title>
+</head>
+
+<body background = "../static/switch.jpg">
+  <header>
+    <div class="pageHeading">
+      <h2>KAMIKAZE'S SHOP</h2>
+    </div>
+    <div class="navBar">
+      <a class="active">
+        <a href= "/">About Kamikaze</a>
+        <a href="guestbook">Guestbook</a>
+        {%if session['logged in'] == True %}
+        <a href="logout">Logout</a>
+        {%else%}
+        <a href="login">Login</a>
+        <a href="signup"> Sign Up</a>
+        {% endif %}
+      </a>
+    </div>
+  </header>
+  <content>
+      <div id="d2polaroid2">
+        <img src="../static/D2.png" id="d2" style="width:100%">
+        <div class="d2container2">
+          <p>Destiny 2</p>
+        </div>
+
+      </div>
+      <div id="d2info2">
+        <h3><b>Destiny 2 – My favorite FPS (First Person Shooter) and grinding game</b></h3>
+        <p>Destiny 2 is an online-only multiplayer first-person shooter video game developed by Bungie.<br> It was
+          released for PlayStation 4 and Xbox One on September 6, 2017, followed by a Microsoft Windows version the
+          following month.<br> The game was published by Activision until early 2019, when Bungie acquired the
+          publishing rights to the franchise.<br> Set in a "mythic science fiction" world, the game features a
+          multiplayer "shared-world" environment with elements of role-playing games. <br>
+          <br>Game critics ratings:<br>
+          <b>IGN – 8.5/10.</b><br>
+          <b>Steam – 9/10.</b><br>
+          <b>PC Gamer – 76%.</b>
+        </p>
+      </div>
+      <br>
+      <h3 class = "rev">Review Destiny 2</h3>
+      {% block content %}
+      {%if session['logged in'] == True%}
+      <form action = "{{url_for('sign1')}}" method=post>
+          <dl>
+              
+              
+              <dt class = "comm1">Comment
+              <dd class = "comm2"><input type=text name=comment>
+              <dd><input type=submit value=Submit class = "submit">
+            </dl>
+      </form>
+      {%else%}
+      <p style = "color:red"> You need to <a href = "login">login to post comments!!</a></p>
+      {%endif%}
+      {% endblock %}
+    </div>
+    
+       {% for entry in entries %}
+       
+
+<div class="card">
+  <div class="card-details">
+    <h2 class="card-head">User Comment</h2>
+    <div class = "comments">
+      <p class = "user"> {{entry[0]}}<br> {{ entry[1]}} </p>    
+  </div>
+</div>
+   </div>
+       {% endfor %}
+
+  </content>
+</body>
+
+</html>
